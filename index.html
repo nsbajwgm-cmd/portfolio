@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안정원 (Jeongwon Ahn) | Risk & Compliance Analyst Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-main: #1a202c;
+            --text-sub: #4a5568;
+            --accent-color: #0f4c5c;
+            --accent-light: #e6fffa;
+            --accent-text: #0d9488;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.2s ease-in-out;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --card-bg: #1e293b;
+                --border-color: #334155;
+                --text-main: #f8fafc;
+                --text-sub: #94a3b8;
+                --accent-color: #38bdf8;
+                --accent-light: #0c4a6e;
+                --accent-text: #38bdf8;
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header Style */
+        header {
+            margin-bottom: 40px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        header .subtitle {
+            font-size: 18px;
+            color: var(--accent-text);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        header .bio {
+            font-size: 16px;
+            color: var(--text-sub);
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        header .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        header .contact a {
+            color: var(--text-sub);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        header .contact a:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 30px;
+        }
+
+        .filter-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filters button {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-sub);
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .filters button[aria-pressed="true"] {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Card Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card .tag-container {
+            margin-bottom: 12px;
+        }
+
+        .card .tag {
+            font-size: 11px;
+            font-weight: 700;
+            background-color: var(--accent-light);
+            color: var(--accent-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .card .metric-badge {
+            margin-top: auto;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 14px;
+        }
+
+        .card .metric-title {
+            font-size: 11px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card .metric-val {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        /* Card Expansion details */
+        .card .details-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .card.open .details-panel {
+            max-height: 500px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+            transition: max-height 0.3s ease-in;
+        }
+
+        .details-panel div {
+            margin-bottom: 10px;
+        }
+
+        .details-panel b {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-sub);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>안정원 <span style="font-weight: 300; font-size: 24px; color: var(--text-sub);">Jungwon An</span></h1>
+            <div class="subtitle">Data & Compliance Analyst | Risk Intelligence Specialist</div>
+            <p class="bio">
+                이화여자대학교에서 문헌정보학(학업성적우수/현장실습 최우수수상)과 공공리더십을 더블전공하며
+                <b>체계적인 데이터 원천 설계 능력</b>과 <b>법률·규제해석 기본기</b>를 융합했습니다. <br>
+                R, Python, SQL, C++ 역량과 실무 전산 프로세스 관리에 깊이 있는 강점을 보유하고 있으며,
+                <b>CAMS(자금세탁방지전문가) 취득 완료 예정</b> 및 <b>FRM(재무리스크관리사)</b> 자격 설계를 결합하여
+                글로벌 스탠다드 리스크 관리에 선제적으로 기여할 준비가 된 예비 분석가입니다.
+            </p>
+            <div class="contact">
+                <a href="mailto:nsbajwgm@gmail.com">📧 nsbajwgm@gmail.com</a>
+                <a href="https://github.com/kawoou" target="_blank">💻 GitHub (github.com/kawoou)</a>
+                <a href="#">🌐 Bilingual: Korean (Native) & English (TOEFL 90)</a>
+            </div>
+        </header>
+
+        <section class="filter-section">
+            <div class="filter-title">필터로 핵심 경험 확인하기</div>
+            <div class="filters" id="filters"></div>
+        </section>
+
+        <main class="grid" id="grid"></main>
+
+        <footer>
+            © 2026 Jeongwon An. Built with HTML5/CSS3. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const STORIES = [
+            {
+                competency: "Data Management & Tech",
+                title: "5,000건 연구 데이터 전처리 및 C++ 프로그램 분석 시스템 통합",
+                result: "정합성 100% 영양소 DB 연동 및 수작업 오류 원천 제거",
+                situation: "Gaonn R&D 인턴 연구 부서에서 맞춤형 솔루션 데이터베이스 앱 구축 참여",
+                task: "신생아부터 실버 세대까지 아우르는 수만 개의 데이터 아카이브 소스로부터 5,000건 이상의 정형 규제/연구 데이터를 수집하고 분류 체계를 완성하는 과업을 받았습니다.",
+                action: "Excel의 복잡한 중복성 처리 기술 및 Python(pandas) 스크립트를 정의하여 데이터를 유기적으로 정제했고, 정합성이 최종 검증된 구조화 데이터를 C++로 프로그래밍된 분석 지향 트리 구조(C++ programmed analysis tree)에 성공적으로 접목시켰습니다."
+            },
+            {
+                competency: "System Migration & Quality",
+                title: "12,000건 이상의 시립도서관 디지털 기록물 ALPAS 시스템 이관",
+                result: "데이터 품질 검증률 99% 이상 달성 (이화여대 최우수 현장실습 보고서상)",
+                situation: "의정부시립도서관 사서 직무 대학생 현장실습 훈련 과정",
+                task: "지역 내 우주/천문/미술/음악 특화 도서관들의 디지털 북 아카이브 목록에서 총 12,000건 이상의 소장용 서지 메타데이터 전반을 시립 통합 ALPAS 전산망으로 안전하게 이관해야 했습니다.",
+                action: "이관 도중 메타데이터 누락 및 미스매칭이 발생하지 않도록 전처리를 수행했으며, ALPAS 라이브러리 메인 구조에 맞추어 항목 매핑 프로세스를 설계하고 이관 정밀도를 99% 이상으로 정밀 모니터링하여 성공적으로 완료했습니다."
+            },
+            {
+                competency: "Risk & Compliance",
+                title: "학부 융합 지식 및 CAMS, FRM 자격 연계 컴플라이언스 체계 수립",
+                result: "TOEFL 90 이중언어 기반 자금세탁(AML)/규제 리스크 리서치 고도화",
+                situation: "문헌정보학(데이터 거버넌스) 및 공공리더십(공공 규제/정책 분석) 복수 전공 이수 과정",
+                task: "글로벌 상위 자격증인 CAMS(자금세탁방지전문가)와 FRM(재무리스크관리사)의 전문 지식 체계를 기반으로 가상의 규제 갭 분석 시나리오를 구성하고 평가하는 자기개발 프로젝트 진행",
+                action: "CAMS의 FATF 자금세탁 방지 규칙 및 국내 특금법 규정을 분석하고, FRM의 시장·신용·운영 리스크 관리 및 바젤 III 표준 자본 비율 산출 기법을 공공정책의 법적 집행 원리와 연계 연구했습니다. TOEFL 90의 영어 소통력을 활용해 다량의 원문 글로벌 규제 가이드를 신속하게 추적, 비교 분석했습니다."
+            },
+            {
+                competency: "Communication & Leadership",
+                title: "이화여대 피어코칭 및 KOSAF 멘토링 프로그램 소통 및 리더십",
+                result: "다학제간 갈등 조정력 및 1:1 맞춤형 컨설팅 피어 상담가로 인정",
+                situation: "이화여대 Peer Coach 및 한국장학재단(KOSAF) 사회리더 멘토링 활동 등",
+                task: "진로 및 학업 설계로 고민을 겪는 다양한 백그라운드를 가진 학부생 피어들을 모집하여 상호 성장형 소통 프로젝트를 조율하고, 갈등 지점을 해결하는 리더 역할 수행",
+                action: "진로 정체 구간을 겪는 피어들의 상담 피드백 루프를 구조화하고, 1:1 경청 가이드를 수립하여 주도적으로 다수의 세션을 조정 및 이끌었습니다. 갈등 조정 노하우를 바탕으로 장학재단 멘토링 등에서 성과 향상에 기여했습니다."
+            }
+        ];
+
+        const grid = document.getElementById("grid");
+        const filtersContainer = document.getElementById("filters");
+
+        // Extract Unique Competencies for Filters
+        const competencies = ["ALL", ...new Set(STORIES.map(s => s.competency))];
+
+        function render(selectedTag) {
+            grid.innerHTML = "";
+            STORIES.filter(s => selectedTag === "ALL" || s.competency === selectedTag).forEach((s, index) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.tabIndex = 0; // keyboard focusable
+
+                card.innerHTML = `
+                    <div class="tag-container">
+                        <span class="tag">${s.competency}</span>
+                    </div>
+                    <h2>${s.title}</h2>
+                    <div class="metric-badge">
+                        <div class="metric-title">핵심 성과 지표 (KPI)</div>
+                        <div class="metric-val">${s.result}</div>
+                    </div>
+                    <div class="details-panel" id="detail-${index}">
+                        <div><b>📍 상황 (Situation)</b> ${s.situation}</div>
+                        <div><b>🎯 과업 (Task)</b> ${s.task}</div>
+                        <div><b>⚙️ 행동 5단계 (Action)</b> ${s.action}</div>
+                    </div>
+                `;
+
+                // Expand on Click
+                card.addEventListener("click", () => {
+                    card.classList.toggle("open");
+                });
+
+                // Support Enter and Space for accessibility
+                card.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        card.classList.toggle("open");
+                    }
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Filter Buttons Dynamically
+        competencies.forEach((comp, idx) => {
+            const btn = document.createElement("button");
+            btn.textContent = comp;
+            btn.setAttribute("aria-pressed", idx === 0 ? "true" : "false");
+
+            btn.addEventListener("click", () => {
+                filtersContainer.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", "false"));
+                btn.setAttribute("aria-pressed", "true");
+                render(comp);
+            });
+
+            filtersContainer.appendChild(btn);
+        });
+
+        // Init
+        render("ALL");
+    </script>
+</body>
+</html>
